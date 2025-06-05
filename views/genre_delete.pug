@@ -19,10 +19,10 @@ block content
           dd #{book.summary}
 
   else
-    p Do you really want to delete this Genre?
+    p 本当に消す？
 
     form(method='POST')
       div.form-group
         input#id.form-control(type='hidden', name='id', value=genre._id )
 
-      button.btn.btn-primary(type='submit') Delete
+      button.btn.btn-primary(type='submit') 削除
