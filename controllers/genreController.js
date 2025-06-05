@@ -8,7 +8,7 @@ const asyncHandler = require("express-async-handler");
 exports.genre_list = asyncHandler(async (req, res, next) => {
   const allGenres = await Genre.find().sort({ name: 1 }).exec();
   res.render("genre_list", {
-    title: "Genre List",
+    title: "ジャンル一覧",
     list_genres: allGenres,
   });
 });
@@ -28,7 +28,7 @@ exports.genre_detail = asyncHandler(async (req, res, next) => {
   }
 
   res.render("genre_detail", {
-    title: "Genre Detail",
+    title: "ジャンルの削除",
     genre: genre,
     genre_books: booksInGenre,
   });
@@ -58,7 +58,7 @@ exports.genre_create_post = [
     if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values/error messages.
       res.render("genre_form", {
-        title: "Create Genre",
+        title: "ジャンルの作成",
         genre: genre,
         errors: errors.array(),
       });
@@ -94,7 +94,7 @@ exports.genre_delete_get = asyncHandler(async (req, res, next) => {
   }
 
   res.render("genre_delete", {
-    title: "Delete Genre",
+    title: "ジャンルの削除",
     genre: genre,
     genre_books: booksInGenre,
   });
@@ -111,7 +111,7 @@ exports.genre_delete_post = asyncHandler(async (req, res, next) => {
   if (booksInGenre.length > 0) {
     // Genre has books. Render in same way as for GET route.
     res.render("genre_delete", {
-      title: "Delete Genre",
+      title: "ジャンルの削除",
       genre: genre,
       genre_books: booksInGenre,
     });
@@ -159,7 +159,7 @@ exports.genre_update_post = [
     if (!errors.isEmpty()) {
       // There are errors. Render the form again with sanitized values and error messages.
       res.render("genre_form", {
-        title: "Update Genre",
+        title: "ジャンルの更新",
         genre: genre,
         errors: errors.array(),
       });
